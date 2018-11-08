@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: app
+  name: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: app
+  template:
+    metadata:
+      labels:
+        run: app
+    spec:
+      containers:
+      - image: coollog/skaffold-demo
+        name: app
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DEMO_WORD
+          value: "world"

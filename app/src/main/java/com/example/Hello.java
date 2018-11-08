@@ -28,7 +28,7 @@ public class Hello extends AbstractHandler {
         String demoWord = System.getenv("DEMO_WORD");
 
         // write out response
-        response.getWriter().println("Hello " + demoWord + " from San Francisco!");
+        response.getWriter().println("Hello " + demoWord + " from Kubecon!");
 
         // write to logs
         Logger.getAnonymousLogger()

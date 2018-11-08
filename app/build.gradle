@@ -7,7 +7,10 @@
  * user guide available at https://docs.gradle.org/3.2.1/userguide/tutorial_java_projects.html
  */
 
-apply plugin: 'java'
+plugins {
+  id 'java'
+  id 'com.google.cloud.tools.jib' version '0.9.13'
+}
 
 repositories {
   jcenter()
@@ -17,15 +20,5 @@ dependencies {
   compile 'org.eclipse.jetty:jetty-server:9.4.12.v20180830'
 }
 
-jar {
-  manifest {
-    attributes "Main-Class": "com.example.Hello"
-  }
+jib.from.image = 'openjdk:8-jre-alpine'
 
-  // package dependencies with jar
-  from {
-    configurations.runtime.collect { 
-      it.isDirectory() ? it : zipTree(it) 
-    }
-  }
-}
