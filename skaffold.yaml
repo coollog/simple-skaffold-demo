@@ -1,9 +1,9 @@
-apiVersion: skaffold/v1alpha5
+apiVersion: skaffold/v1beta2
 kind: Config
 build:
   artifacts:
   - image: coollog/skaffold-demo
     context: app
-    jibGradle: {}
+    jibMaven: {}
   local:
     push: true
